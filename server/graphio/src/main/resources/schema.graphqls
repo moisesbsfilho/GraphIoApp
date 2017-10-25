@@ -1,9 +1,14 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
     allPosts: [Post!]
+}
+
+type Mutation{
+	createPost(imageUrl: String!, description: String!): Post
 }
 
 type Post {

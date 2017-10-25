@@ -21,6 +21,16 @@ public class Post {
 	
 	@OneToMany(mappedBy="post", fetch=FetchType.EAGER)
 	private List<Comment> comments;
+	
+	public Post() {
+		super();
+	}
+
+	public Post(String imageUrl, String description) {
+		super();
+		this.imageUrl = imageUrl;
+		this.description = description;
+	}
 
 	public Long getId() {
 		return id;

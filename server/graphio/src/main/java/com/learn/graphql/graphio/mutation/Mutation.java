@@ -1,6 +1,4 @@
-package com.learn.graphql.graphio.resolver;
-
-import java.util.List;
+package com.learn.graphql.graphio.mutation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,17 +8,15 @@ import com.learn.graphql.graphio.model.Post;
 import com.learn.graphql.graphio.repository.PostRepository;
 
 @Component
-public class Query implements GraphQLRootResolver {
+public class Mutation implements GraphQLRootResolver{
 
 	@Autowired
 	private PostRepository postRepository;
-
-	public Query(){
-		super();
+	
+	public Post createPost(String imageUrl, String description){
+		Post post = new Post(imageUrl, description);
+		post = postRepository.save(post);
+		return post;
 	}
-
-	public List<Post> allPosts() {
-		return (List<Post>) postRepository.findAll();
-	}
-
+	
 }
