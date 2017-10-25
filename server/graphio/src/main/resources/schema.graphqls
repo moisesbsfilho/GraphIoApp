@@ -1,0 +1,19 @@
+schema {
+    query: Query
+}
+
+type Query {
+    allPosts: [Post!]
+}
+
+type Post {
+	id: ID!
+    imageUrl: String!
+    description: String!
+    comments: [Comment!]
+}
+
+type Comment {
+	id: ID!
+    description: String!
+}
