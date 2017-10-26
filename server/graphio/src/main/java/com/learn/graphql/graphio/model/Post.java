@@ -2,6 +2,7 @@ package com.learn.graphql.graphio.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ public class Post {
 	
 	private String imageUrl;
 	
+	@Column(columnDefinition="TEXT")
 	private String description;
 	
 	@OneToMany(mappedBy="post", fetch=FetchType.EAGER)
